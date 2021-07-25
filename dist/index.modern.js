@@ -1,8 +1,6 @@
 import { Component, createElement } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 
-var styles = {"test":"_styles-module__test__3ybTi"};
-
 class Replace extends Component {
   renderChildren(children) {
     this.props.replace.forEach(replaceObj => {
@@ -27,21 +25,21 @@ class Replace extends Component {
 
 }
 
-const ExampleComponent = ({
-  text
+const Url = ({
+  className,
+  css
 }) => {
-  return createElement("div", {
-    className: styles.test
-  }, "Example Component: ", text);
-};
-const ExampleComponent2 = ({
-  text
-}) => {
-  return createElement("div", {
-    className: styles.test
-  }, "Example Component: ", text);
+  const urlCss = `
+    text-decoration: underline;
+    cursor: pointer;
+  `;
+  return {
+    text: 'https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)',
+    css: css || urlCss,
+    className: className
+  };
 };
 
 export default Replace;
-export { ExampleComponent, ExampleComponent2 };
+export { Url };
 //# sourceMappingURL=index.modern.js.map

@@ -3,6 +3,7 @@ import ReactHtmlParser from 'react-html-parser'
 type ReplaceObject = {
   text: string
   css: string
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void
   className?: string
 }
 

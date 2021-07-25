@@ -3,8 +3,6 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var ReactHtmlParser = _interopDefault(require('react-html-parser'));
 
-var styles = {"test":"_styles-module__test__3ybTi"};
-
 function _inheritsLoose(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype);
   subClass.prototype.constructor = subClass;
@@ -54,20 +52,17 @@ var Replace = /*#__PURE__*/function (_React$Component) {
   return Replace;
 }(React.Component);
 
-var ExampleComponent = function ExampleComponent(_ref) {
-  var text = _ref.text;
-  return React.createElement("div", {
-    className: styles.test
-  }, "Example Component: ", text);
-};
-var ExampleComponent2 = function ExampleComponent2(_ref2) {
-  var text = _ref2.text;
-  return React.createElement("div", {
-    className: styles.test
-  }, "Example Component: ", text);
+var Url = function Url(_ref) {
+  var className = _ref.className,
+      css = _ref.css;
+  var urlCss = "\n    text-decoration: underline;\n    cursor: pointer;\n  ";
+  return {
+    text: 'https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)',
+    css: css || urlCss,
+    className: className
+  };
 };
 
-exports.ExampleComponent = ExampleComponent;
-exports.ExampleComponent2 = ExampleComponent2;
+exports.Url = Url;
 exports.default = Replace;
 //# sourceMappingURL=index.js.map
