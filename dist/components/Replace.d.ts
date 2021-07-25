@@ -1,9 +1,9 @@
 import * as React from 'react';
 declare type ReplaceObject = {
-    text: string;
+    text: string | RegExp;
     css: string;
-    onClick?: (event: React.MouseEvent<HTMLElement>) => void;
     className?: string;
+    tag?: string;
 };
 declare type Props = {
     children: React.ReactNode;

@@ -1,10 +1,11 @@
 declare type Template = {
     css?: string;
-    className: string;
+    className?: string;
 };
 export declare const Url: ({ className, css }: Template) => {
-    text: string;
+    text: RegExp;
     css: string;
     className: string;
+    tag: string;
 };
 export {};

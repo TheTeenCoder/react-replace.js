@@ -1,6 +1,6 @@
 type Template = {
   css?: string
-  className: string
+  className?: string
 }
 
 export const Url = ({ className, css }: Template) => {
@@ -9,9 +9,16 @@ export const Url = ({ className, css }: Template) => {
     cursor: pointer;
   `
 
+  const Regex = new RegExp(
+    '[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)'
+  )
+
   return {
-    text: 'https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)',
+    text: new RegExp(
+      'https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)'
+    ),
     css: css || urlCss,
-    className: className
+    className: className || '',
+    tag: 'a'
   }
 }

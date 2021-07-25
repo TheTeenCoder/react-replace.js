@@ -4,7 +4,7 @@ import ReactHtmlParser from 'react-html-parser';
 class Replace extends Component {
   renderChildren(children) {
     this.props.replace.forEach(replaceObj => {
-      children = children.replace(replaceObj.text, `<span style="${replaceObj.css}" class="${replaceObj.className}">${replaceObj.text}</span>`);
+      children = children.replace(replaceObj.text, `<${replaceObj.tag ? replaceObj.tag : 'span'} style="${replaceObj.css}" class="${replaceObj.className}">${replaceObj.text}</${replaceObj.tag ? replaceObj.tag : 'span'}>`);
     });
     console.log(children);
     return children;
@@ -33,10 +33,12 @@ const Url = ({
     text-decoration: underline;
     cursor: pointer;
   `;
+  const regex = RegExp('[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)');
   return {
-    text: 'https?://(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)',
+    text: regex,
     css: css || urlCss,
-    className: className
+    className: className || '',
+    tag: 'a'
   };
 };
 

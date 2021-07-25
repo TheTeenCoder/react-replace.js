@@ -1,10 +1,11 @@
 import * as React from 'react'
 import ReactHtmlParser from 'react-html-parser'
+
 type ReplaceObject = {
-  text: string
+  text: string | RegExp
   css: string
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void
   className?: string
+  tag?: string
 }
 
 type Props = {
@@ -17,7 +18,11 @@ export default class Replace extends React.Component<Props, {}> {
     this.props.replace.forEach((replaceObj) => {
       children = children.replace(
         replaceObj.text,
-        `<span style="${replaceObj.css}" class="${replaceObj.className}">${replaceObj.text}</span>`
+        `<${replaceObj.tag ? replaceObj.tag : 'span'} style="${
+          replaceObj.css
+        }" class="${replaceObj.className}">${replaceObj.text}</${
+          replaceObj.tag ? replaceObj.tag : 'span'
+        }>`
       )
     })
     console.log(children)
@@ -29,7 +34,6 @@ export default class Replace extends React.Component<Props, {}> {
       return this.renderChildren(children)
     } else {
       console.log(children)
-
       return children
     }
   }
