@@ -2,6 +2,7 @@ import * as React from 'react';
 declare type ReplaceObject = {
     text: string;
     css: string;
+    className?: string;
 };
 declare type Props = {
     children: React.ReactNode;

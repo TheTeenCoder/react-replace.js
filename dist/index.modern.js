@@ -6,7 +6,7 @@ var styles = {"test":"_styles-module__test__3ybTi"};
 class Replace extends Component {
   renderChildren(children) {
     this.props.replace.forEach(replaceObj => {
-      children = children.replace(replaceObj.text, `<span style="${replaceObj.css}">${replaceObj.text}</span>`);
+      children = children.replace(replaceObj.text, `<span style="${replaceObj.css}" class="${replaceObj.className}">${replaceObj.text}</span>`);
     });
     console.log(children);
     return children;

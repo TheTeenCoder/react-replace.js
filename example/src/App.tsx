@@ -5,9 +5,14 @@ import 'react-replace/dist/index.css'
 
 const Test = () => {
   const replace = [
-    {text:'test', css: 'font-weight: bold;'}
+    { text: 'test', css: 'font-weight: bold;', className: 'test' }
   ]
-  return <div><h1>Test</h1><Replace replace={replace}>test what omg</Replace></div>
+  return (
+    <div>
+      <h1>Test</h1>
+      <Replace replace={replace}>test what omg</Replace>
+    </div>
+  )
 }
 
 const App = () => {

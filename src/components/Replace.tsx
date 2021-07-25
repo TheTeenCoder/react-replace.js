@@ -3,6 +3,7 @@ import ReactHtmlParser from 'react-html-parser'
 type ReplaceObject = {
   text: string
   css: string
+  className?: string
 }
 
 type Props = {
@@ -15,7 +16,7 @@ export default class Replace extends React.Component<Props, {}> {
     this.props.replace.forEach((replaceObj) => {
       children = children.replace(
         replaceObj.text,
-        `<span style="${replaceObj.css}">${replaceObj.text}</span>`
+        `<span style="${replaceObj.css}" class="${replaceObj.className}">${replaceObj.text}</span>`
       )
     })
     console.log(children)

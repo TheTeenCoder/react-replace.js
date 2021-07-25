@@ -32,7 +32,7 @@ var Replace = /*#__PURE__*/function (_React$Component) {
 
   _proto.renderChildren = function renderChildren(children) {
     this.props.replace.forEach(function (replaceObj) {
-      children = children.replace(replaceObj.text, "<span style=\"" + replaceObj.css + "\">" + replaceObj.text + "</span>");
+      children = children.replace(replaceObj.text, "<span style=\"" + replaceObj.css + "\" class=\"" + replaceObj.className + "\">" + replaceObj.text + "</span>");
     });
     console.log(children);
     return children;
